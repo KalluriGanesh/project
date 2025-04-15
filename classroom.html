@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Classroom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="classroom-container">
+        <header>
+            <h1>Welcome to Virtual Classroom</h1>
+            <nav>
+                <a href="#" id="logout">Logout</a>
+            </nav>
+        </header>
+        
+        <div class="main-content">
+            <div class="video-container">
+                <div class="video-feed">
+                    <!-- Video feed will be loaded here -->
+                </div>
+                <div class="controls">
+                    <button id="micToggle">Mic Off</button>
+                    <button id="cameraToggle">Camera Off</button>
+                    <button id="shareScreen">Share Screen</button>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Chat messages will appear here -->
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button id="sendMessage">Send</button>
+                    </div>
+                </div>
+                
+                <div class="participants">
+                    <h3>Participants</h3>
+                    <ul id="participantsList">
+                        <!-- Participants will be listed here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="whiteboard-container">
+            <canvas id="whiteboard" width="800" height="400"></canvas>
+            <div class="whiteboard-controls">
+                <input type="color" id="colorPicker" value="#000000">
+                <input type="range" id="brushSize" min="1" max="20" value="5">
+                <button id="clearWhiteboard">Clear</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
