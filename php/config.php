@@ -1,22 +1,30 @@
 <?php
+session_start();
+
+// XAMPP default credentials
 $servername = "localhost";
 $username = "root";
-$password = ""; // Default XAMPP password is empty
-$dbname = "virtual_classroom_db";
+$password = "";
+$dbname = "virtual_classroom";
 
-try {
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    // Check connection
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    // Try creating database if it doesn't exist
+    $conn = new mysqli($servername, $username, $password);
     if ($conn->connect_error) {
-        throw new Exception("Connection failed: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
-    
-    // Set charset to utf8
-    $conn->set_charset("utf8");
-    
-} catch (Exception $e) {
-    die("Database error: " . $e->getMessage());
+    $conn->query("CREATE DATABASE IF NOT EXISTS $dbname");
+    $conn->select_db($dbname);
 }
+
+// Set charset
+$conn->set_charset("utf8mb4");
+
+// Error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
