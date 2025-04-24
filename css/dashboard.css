@@ -1,4 +1,5 @@
 /* Dashboard Styles */
+
 :root {
     --primary: #4361ee;
     --secondary: #3f37c9;
@@ -12,6 +13,7 @@
     --text-light: #8d99ae;
     --bg: #edf2f4;
 }
+
 
 * {
     margin: 0;
@@ -343,6 +345,7 @@ body {
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
 }
+
 
 .schedule-item:last-child {
     border-bottom: none;
